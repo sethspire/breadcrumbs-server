@@ -1,0 +1,47 @@
+html{
+    box-sizing: border-box;
+}
+*{box-sizing: inherit;}
+
+p{
+    text-align: center;
+    padding: 0px;
+
+}
+
+aside {
+    position: relative;
+    padding-left: 15px;
+    padding-right: 10px;
+    padding-bottom: 15px;
+    width: 40%;
+}
+
+body{
+    margin: 0;
+}
+
+#asidecontainer{width: 10%;}
+
+#container{
+    margin:  10px;
+}
+
+
+main{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+img#logo{
+    width: 100px;
+    height: 100px;
+     
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer{text-align: center;}
+
