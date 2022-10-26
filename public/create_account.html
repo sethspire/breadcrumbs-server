@@ -6,6 +6,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/BCrumbs.css">
        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+       <script defer src="create-account.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -49,20 +50,24 @@
               Create Account
             </div>
             <div class="card-body">
-                <form action="#">
+                <form id="createAccountForm">
                     <label for="email_address">Email address:</label><br>
-                    <input type="text" id="email_address" placeholder="email address" name="email_address"><br>
+                    <input type="text" id="email" placeholder="email address" name="email_address"><br>
+
+                    <label for="username">Username:</label><br>
+                    <input id="username" type="text" placeholder="username" name=""username><br>
                     
-                    <label for="email_address">Password:</label><br>
-                    <input type="text" id="email_address" placeholder="password" name="password"><br>
+                    <label for="password">Password:</label><br>
+                    <input type="text" id="password" placeholder="password" name="password"><br>
                     
-                    <label for="email_address">Retype Password:</label><br>
+                    <label for="password-retype">Retype Password:</label><br>
                     <input type="text" id="password-retype" placeholder="retype password" name="password-retype"><br>
 
-                  <br>
-
-                    <a href="#" class="btn btn-primary">Login</a>
-                </form>            
+                    
+                    <br>
+                    <input type ="submit" id="submit" value="submit" class="btn btn-primary">
+                </form>  
+                <div id="message"></div>          
             </div>
           </div>
 

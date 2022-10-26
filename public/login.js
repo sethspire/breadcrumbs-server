@@ -1,20 +1,41 @@
-const submitButton = document.querySelector("#submit")
+const protocol = window.location.protocol
+const host = window.location.host
+const dbURL = (host.split(":",1)[0] === "localhost") ? "http://localhost:3001" : "https://thebreadcrumbs-api.herokuapp.com"
 
-const submit = function () {
+const loginForm = document.querySelector("#loginForm")
+const emailInput = document.querySelector("#email")
+const passwordInput = document.querySelector("#password")
 
-    const username = document.querySelector("#username")
-    const value1 = username.value
+loginForm.addEventListener("submit", async(e) => {
+    e.preventDefault()
 
-    const password = document.querySelector("#password")
-    const value2 = password.value
-    
-    //check if query sucessful- account found- use fetch and such
-        //then go back to homepage with account logged in
-    
-    //if query not successful- tell user to reenter information 
-    let alert = document.querySelector("#alert")
-    alert.textContent = "Account not found. Reenter correct username or password"
-    
-}
+    const email = emailInput.value
+    const password = passwordInput.value
+    const data = { email, password }
 
-submitButton.addEventListener("click", submit)
+    const url = dbURL + "/users/login"
+
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    }
+
+    let response = await fetch(url, options)
+
+    if (response.status === 400) {
+        const message = document.querySelector("#message")
+        message.textContent = "Invalid email or password."
+    } 
+    else if (response.status === 200) {
+        const data = await response.json()
+        
+        localStorage.setItem("token", data.token)
+        alert("login correct")
+
+        const newUrl = `${protocol}//${host}`
+        window.location.replace(newUrl)
+    }
+})
