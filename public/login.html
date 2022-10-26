@@ -55,14 +55,15 @@
     <!--Remember to link recover page to the word reset here -->
     <p>Have an account but forgot your username or password?<a href="#"> Reset your information and recover your account.</a></p>
     <br>
-    <form>
-      <label for="username">Username:</label><br>
-      <input type="text" id="username" placeholder="Email address" name="username"><br>
+    <form id="loginForm">
+      <label for="email">Email:</label><br>
+      <input type="text" id="email" name="email"><br>
       <label for="password">Password:</label><br>
-      <input type="text" id="password" placeholder="Password" name="password">
+      <input type="text" id="password" name="password">
+      <br> <br>
+      <input type ="submit" id="submit" value="submit">
     </form> <br>
-    <button id="submit"class="btn btn-primary">Login</button> <br> <br>
-    <div id="alert"></div>
+    <div id="message"></div>
     <footer>
       <address>
         <p>&#169; Copyright 2022 BreadCrumbs</p>
