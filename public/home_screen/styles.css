@@ -1,0 +1,163 @@
+img#logo{
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page_content {
+    width: 100%;
+    /* border: solid black; */
+}
+
+.container_1 {
+    /* background-color: rgb(204, 245, 231); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome {
+    margin: 200px 0;
+    /* border: solid blue 2px; */
+}
+
+.welcome h1 {
+    margin-bottom: 35px;
+    font-size: 50px;
+}
+
+.welcome button {
+    margin-top: 35px;
+}
+
+/* end of container_1 */
+
+/* .container_2 {
+    background-color: bisque;
+} */
+
+.who_we_are{
+    /* border: solid purple 2px; */
+    display: flex;
+    align-items: center;  /* centers vertically */
+    justify-content: center; /* centers horizontally */
+    padding: 5px; /* margin in child and padding in parent */
+    flex-flow: row wrap; /* continue underneath */
+}
+
+.wwa_subcontainer_1 {
+    /* border: solid yellow; */
+    margin: 5px; /* margin in child and padding in parent */
+    margin-right: 40px;
+}
+
+#girl_on_phone_img {
+    width:600px;
+}
+
+.wwa_subcontainer_2 {
+    /* border: solid green; */
+    margin: 30px; /* margin in child and padding in parent */
+    margin-left: 40px;
+    width: 300px;
+    height: 400px;
+}
+
+.wwa_subcontainer_2 h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 35px;
+}
+
+.wwa_subcontainer_2 p {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.wwa_subcontainer_2 button {
+    bottom: 0;
+}
+
+.centered-button {
+    display: flex;
+    justify-content: center;
+}
+
+/* end of container_2 */
+
+.container_3 {
+    /* border: solid rgb(7, 210, 200) 2px; */
+    margin-top: 80px;
+    display: flex;
+    align-items: center;  /* centers vertically */
+    justify-content: center; /* centers horizontally */
+}
+/* .are_you {
+    border: solid rgb(255, 0, 0) 2px;
+} */
+
+.are_you h2 {
+    font-size: 40px;
+    margin: 20px 40px;
+}
+.item_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    margin-bottom: 20px;
+    flex: 1 1 0;
+}
+
+.item {
+    /* border: solid black 2px; */
+    padding: 30px;
+    text-align: center;
+}
+
+.item_title {
+    /* border: red solid 2px; */
+    margin-top: 20px;
+}
+
+/* same size for all items */
+.item_1 {
+    flex: 1 1 0; 
+}
+
+.item_2 {
+    flex: 1 1 0;
+}
+
+.item_3 {
+    flex: 1 1 0;
+}
+
+.item img {
+    width: 100%;
+}
+
+.catch_phrase {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.catch_phrase p {
+    font-weight: 900;
+}
+
+#footer {
+    position: relative;
+    bottom:0;
+    padding-top: 50px;;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* border: solid red 2px; */
+}
