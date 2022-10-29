@@ -33,7 +33,6 @@ createAccountForm.addEventListener('submit', async(e) => {
 
     if (response.status === 400) {
         message.textContent = data.message
-        alert("Creat Account Failed:\n\n" + data.message)
     } 
     else if (response.status === 201) {
         localStorage.setItem("token", data.token)
