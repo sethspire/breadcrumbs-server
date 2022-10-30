@@ -3,12 +3,6 @@ html{
 }
 *{box-sizing: inherit;}
 
-p{
-    text-align: center;
-    padding: 0px;
-
-}
-
 aside {
     position: relative;
     padding-left: 15px;
