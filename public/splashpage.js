@@ -26,6 +26,8 @@ function createSplashScreen() {
     splashElement.appendChild(closeButton)
     splashElement.appendChild(sign1Button)
     splashElement.appendChild(sign2Button)
+    console.log(splashElement)
+    console.log(document.body)
     document.body.appendChild(splashElement)
 
     splashElement.addEventListener("click", deleteSplashScreen)
