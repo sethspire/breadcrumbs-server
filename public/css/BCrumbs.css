@@ -15,6 +15,10 @@ body{
     margin: 0;
 }
 
+div{
+    padding: auto;
+    display: inline-block;
+}
 #asidecontainer{width: 10%;}
 
 #container{
