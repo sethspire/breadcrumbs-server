@@ -9,7 +9,7 @@
     left: 25%;
     display: inline-block;
     width: auto;
-    height: 500px;
+    height: 120%;
     margin: 50px;
     padding: 20px;
     background-color: lightgray;
@@ -51,12 +51,12 @@
 
 #sign-in {
     position: absolute;
-    top: 10%;
+    top: 15%;
     right: 5%;
     left: 10%;
     display: inline-block;
-    width: 300px;
-    height: 100px;
+    width: 50%;
+    height: 25%;
     margin: 90px;
     padding: 30px;
     background-color: darkgray;
@@ -75,8 +75,8 @@
     right: 5%;
     left: 10%;
     display: inline-block;
-    width: 300px;
-    height: 100px;
+    width: 50%;
+    height: 25%;
     margin: 90px;
     padding: 30px;
     background-color: darkgray;
@@ -86,7 +86,7 @@
 }
 
 #sign-up::after{
-    content: "Sign Up";
+    content: "Sign-Up";
 }
 
 
