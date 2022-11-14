@@ -99,9 +99,10 @@ h3 {
     width: 70px; 
 }
 
-#details {
-    margin-bottom: 10px;
-    width: 200px;
+#street {
+    margin-bottom: 10px;   
+    margin-top: 10px;
+    width: 217px;
 }
 
 .time-container {
