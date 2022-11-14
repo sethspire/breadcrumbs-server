@@ -33,4 +33,30 @@ function createSplashScreen() {
     splashElement.addEventListener("click", deleteSplashScreen)
 }
 
-createSplashScreen()
+const protocol = window.location.protocol
+const host = window.location.host
+const dbURL = (host.split(":",1)[0] === "localhost") ? "http://localhost:3001" : "https://thebreadcrumbs-api.herokuapp.com"
+
+window.addEventListener('load', async(e) => {
+    e.preventDefault()
+
+    const token = localStorage.getItem("token")
+    const url = dbURL + "/users/me"
+
+    const options = {
+        method: "GET",
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    }
+
+    let response = await fetch(url, options)
+
+    if (response.ok) {
+        if (response.status === 200) {
+            
+        }
+    } else {
+        createSplashScreen()
+    }
+})
