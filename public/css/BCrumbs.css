@@ -33,7 +33,16 @@ main{
     flex-wrap: wrap;
 }
 
-img#logo{
+img{
+    width: 60px;
+    height: 60px;
+    /* width: 100px;
+    height: 100px; */
+     
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}#homelogo{
     width: 60px;
     height: 60px;
     /* width: 100px;
@@ -43,6 +52,7 @@ img#logo{
     margin-left: auto;
     margin-right: auto;
 }
+
 
 h1 {
     margin-top: 15px;
