@@ -18,7 +18,7 @@ body{
 
 div{
     padding: auto;
-    display: inline-block;
+    display: flexbox;
 }
 #asidecontainer{width: 10%;}
 
