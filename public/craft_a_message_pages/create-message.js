@@ -37,13 +37,11 @@ createMessageForm.addEventListener('submit', async(e) => {
     const contact1FullName = `${contactFirstName1.value} ${contactLastName1.value}`
     const contact2FullName = `${contactFirstName2.value} ${contactLastName2.value}`
     const contact3FullName = `${contactFirstName3.value} ${contactLastName3.value}`
-    console.log(contact1FullName, contact2FullName, contact3FullName)
 
     //stores the phone numbers of the contacts
     const phoneNumber1 = phone1.value
     const phoneNumber2 = phone2.value
     const phoneNumber3 = phone3.value
-    console.log(phoneNumber1, phoneNumber2, phoneNumber3)
 
     //stores the information of the contacts into array
     const contacts = [
@@ -51,11 +49,9 @@ createMessageForm.addEventListener('submit', async(e) => {
         {name: contact2FullName, phoneNumber: phoneNumber2},
         {name: contact3FullName, phoneNumber: phoneNumber3}
     ]
-    console.log(contacts)
 
     //stores the message crafted by user
     const messageText = message.value
-    console.log(messageText)
 
     //stores the geolocation of the user 
     const state = stateInput.value
@@ -66,11 +62,9 @@ createMessageForm.addEventListener('submit', async(e) => {
         city: city, 
         street: street
     }
-    console.log(geoLocation)
 
     //stores the time indicating when to send the text
     const time = timeInput.value
-    console.log(time)
     
     let data = {messageText, time, contacts, geoLocation}
 
