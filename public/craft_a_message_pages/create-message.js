@@ -33,6 +33,9 @@ createMessageForm.addEventListener('submit', async(e) => {
     //obtains the user's token for being logged in 
     const token = localStorage.getItem("token")
 
+    //stores the information of the contacts into array
+    const contacts = []
+
     //stores the full name of the contacts (first + last)
     const contact1FullName = `${contactFirstName1.value} ${contactLastName1.value}`
     const contact2FullName = `${contactFirstName2.value} ${contactLastName2.value}`
@@ -43,12 +46,16 @@ createMessageForm.addEventListener('submit', async(e) => {
     const phoneNumber2 = phone2.value
     const phoneNumber3 = phone3.value
 
-    //stores the information of the contacts into array
-    const contacts = [
-        {name: contact1FullName, phoneNumber: phoneNumber1},
-        {name: contact2FullName, phoneNumber: phoneNumber2},
-        {name: contact3FullName, phoneNumber: phoneNumber3}
-    ]
+    //stores the contacts that were actually created
+    if (phoneNumber1 && contactFirstName1.value && contactLastName1.value){
+        contacts.push({name: contact1FullName, phoneNumber: phoneNumber1})
+    }
+    if (phoneNumber2 && contactFirstName2.value && contactLastName2.value){
+        contacts.push({name: contact2FullName, phoneNumber: phoneNumber2})
+    }
+    if (phoneNumber3 && contactFirstName3.value && contactLastName3.value){
+        contacts.push({name: contact3FullName, phoneNumber: phoneNumber3})
+    }
 
     //stores the message crafted by user
     const messageText = message.value
@@ -65,8 +72,13 @@ createMessageForm.addEventListener('submit', async(e) => {
 
     //stores the time indicating when to send the text
     const time = timeInput.value
+    const today = new Date()
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    const yyyy = today.getFullYear();
+    const sendDatetime = yyyy + "-" + mm + "-" + dd + "T" + time
     
-    let data = {messageText, time, contacts, geoLocation}
+    let data = {messageText, sendDatetime, contacts, geoLocation}
 
     const url = dbURL + '/messages'
 
