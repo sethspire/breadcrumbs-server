@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/BCrumbs.css">
+    <script defer src="create-message.js"></script>
     <title>Craft Message</title>
 </head>
 <body>
@@ -43,7 +44,7 @@
 
     <div class="parent-container">
         <div class="left-subcontainer">
-            <form action="#" method="#">
+            <form id="createMessageForm">
                 <div class="contacts-container">
                     <div class="contactName-container">
                         <div class="contactName-header">
@@ -71,7 +72,7 @@
                 </div>
                 <div class="message-container">
                     <h3>Message</h3>
-                    <textarea type="text" id="message" placeholder="Enter your message here" name="message" rows="4" cols="50"></textarea>
+                    <textarea type="text" id="messageInput" placeholder="Enter your message here" name="messageInput" rows="4" cols="50"></textarea>
                 </div>
                 <div class="geo-location-container">
                     <h3>Enter your geographic location</h3>
@@ -81,8 +82,8 @@
                     <label for="state">State</label>
                     <input type="text" id="state" placeholder="e.g. VA" name="state"><br>
                     
-                    <label for="details">Details</label>
-                    <input type="text" id="details" placeholder="e.g. I will be at Hillandale Park" name="details">
+                    <label for="street">Street</label>
+                    <input type="text" id="street" placeholder="e.g. 123 College St" name="street">
                 </div>
                 <div class="time-container">
                     <h3 class="time-header">Enter time to send text</h3>
@@ -102,6 +103,7 @@
                 <img src="images/screenshot.png" alt="example of filled out form">
             </div>
         </div>
+        <div class="centered" id="dbMessage"></div>
     </div>
    
 

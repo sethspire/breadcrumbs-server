@@ -86,7 +86,7 @@ h3 {
     width: 155px;
 }
 
-#message {
+#messageInput {
     height: 100px;
     width: 400px;
 }
@@ -99,7 +99,7 @@ h3 {
     width: 70px; 
 }
 
-#details {
+#street {
     margin-bottom: 10px;
     width: 200px;
 }
