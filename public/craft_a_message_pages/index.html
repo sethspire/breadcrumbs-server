@@ -13,7 +13,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img id="logo" src="Logo/Logo_Transparent_background.png">
+                <img id="logo" src="/Logo/Logo_Transparent_background.png">
             </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -71,9 +71,9 @@
 
                     <div class="phoneNumber-container">
                         <h3>Phone Numbers</h3>
-                        <input type="tel" class="phone-input" id="phone-1" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" placeholder="e.g. 123 456 7890" maxlength="12" name="phone-1"><br>
-                        <input type="tel" class="phone-input" id="phone-2" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" placeholder="e.g. 123 456 7890" maxlength="12" name="phone-2"><br>
-                        <input type="tel" class="phone-input" id="phone-3" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" placeholder="e.g. 123 456 7890" maxlength="12" name="phone-3">
+                        <input type="tel" class="phone-input" id="phone-1" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="e.g. 123-456-7890" maxlength="12" name="phone-1"><br>
+                        <input type="tel" class="phone-input" id="phone-2" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="e.g. 123-456-7890" maxlength="12" name="phone-2"><br>
+                        <input type="tel" class="phone-input" id="phone-3" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="e.g. 123-456-7890" maxlength="12" name="phone-3">
                     </div>
                 
                     
@@ -103,6 +103,9 @@
 
             </form>
         </div>
+
+        <div class="centered" id="dbMessage" style="color:red; text-align: center"></div>
+
         <div class="right-subcontainer">
             <div class="example-header centered">
                 <h3>Example</h3>
@@ -111,7 +114,6 @@
                 <img src="images/screenshot.png" alt="example of filled out form">
             </div>
         </div>
-        <div class="centered" id="dbMessage"></div>
     </div>
    
 
