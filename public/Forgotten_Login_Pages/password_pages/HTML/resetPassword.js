@@ -41,9 +41,6 @@ sendButton.addEventListener("click", async(e) => {
     } 
     //found account with email
     else if (response.status === 200) {
-        const data = await response.json()
-        
-        //localStorage.setItem("token", data.token)
         alert("updates implemented")
 
         const newUrl = `${protocol}//${host}`

@@ -31,5 +31,7 @@ sendButton.addEventListener("click", async(e) => {
     } 
     else if (response.status === 201) {
         alert("link to reset password will work for next 15 minutes")
+        const newUrl = `${protocol}//${host}`
+        window.location.replace(newUrl)
     }
 })
