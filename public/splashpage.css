@@ -6,10 +6,10 @@
 #splash-screen {
     position: absolute;
     top: 10%;
-    left: 25%;
+    left: 33%;
     display: inline-block;
     width: auto;
-    height: 120%;
+    height: 70%;
     margin: 50px;
     padding: 20px;
     background-color: lightgray;
