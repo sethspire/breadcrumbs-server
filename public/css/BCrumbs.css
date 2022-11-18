@@ -19,8 +19,9 @@ body{
 div{
     padding: auto;
     display: flexbox;
-}
-#asidecontainer{width: 10%;}
+}#asidecontainer{width: 10%;}
+
+.card-body{padding: 50px;}
 
 #container{
     margin:  10px;
