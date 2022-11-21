@@ -13,9 +13,9 @@ const contactLastName1 = document.getElementById('contactLastName-1')
 const contactLastName2 = document.getElementById('contactLastName-2')
 const contactLastName3 = document.getElementById('contactLastName-3')
 
-const phone1 = document.getElementById('phone-1')
-const phone2 = document.getElementById('phone-2')
-const phone3 = document.getElementById('phone-3')
+const emailInput1 = document.getElementById('email-1')
+const emailInput2 = document.getElementById('email-2')
+const emailInput3 = document.getElementById('email-3')
 
 const message = document.getElementById('messageInput')
 
@@ -42,19 +42,19 @@ createMessageForm.addEventListener('submit', async(e) => {
     const contact3FullName = `${contactFirstName3.value} ${contactLastName3.value}`
 
     //stores the phone numbers of the contacts
-    const phoneNumber1 = phone1.value
-    const phoneNumber2 = phone2.value
-    const phoneNumber3 = phone3.value
+    const email1 = emailInput1.value
+    const email2 = emailInput2.value
+    const email3 = emailInput3.value
 
     //stores the contacts that were actually created
-    if (phoneNumber1 && contactFirstName1.value && contactLastName1.value){
-        contacts.push({name: contact1FullName, phoneNumber: phoneNumber1})
+    if (email1 && contactFirstName1.value && contactLastName1.value){
+        contacts.push({name: contact1FullName, email: email1})
     }
-    if (phoneNumber2 && contactFirstName2.value && contactLastName2.value){
-        contacts.push({name: contact2FullName, phoneNumber: phoneNumber2})
+    if (email2 && contactFirstName2.value && contactLastName2.value){
+        contacts.push({name: contact2FullName, email: email2})
     }
-    if (phoneNumber3 && contactFirstName3.value && contactLastName3.value){
-        contacts.push({name: contact3FullName, phoneNumber: phoneNumber3})
+    if (email3 && contactFirstName3.value && contactLastName3.value){
+        contacts.push({name: contact3FullName, email: email3})
     }
 
     //stores the message crafted by user
