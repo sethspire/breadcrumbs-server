@@ -74,7 +74,7 @@ h3 {
     flex-direction: row;
 }
 
-.phoneNumber-container {
+.email-container {
     margin-left: 15px;
 }
 
@@ -82,7 +82,7 @@ h3 {
     width: 105px;
 }
 
-.phone-input { 
+.email-input { 
     width: 155px;
 }
 
