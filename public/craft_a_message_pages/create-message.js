@@ -30,8 +30,11 @@ const dbMessageDiv = document.getElementById('dbMessage')
 //prompts the user to login if token is not found
 window.addEventListener('load', async(e) => {
     e.preventDefault()
+
+    //obtains the user's token for being logged in 
+    const token = localStorage.getItem("token")
   
-    const url = dbURL + '/messages'
+    const url = dbURL + '/users/me'
 
     const options = {
         method: 'GET',
