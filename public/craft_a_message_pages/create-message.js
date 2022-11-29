@@ -31,6 +31,8 @@ const dbMessageDiv = document.getElementById('dbMessage')
 window.addEventListener('load', async(e) => {
     e.preventDefault()
 
+    console.log(timeInput)
+
     //obtains the user's token for being logged in 
     const token = localStorage.getItem("token")
   

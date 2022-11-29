@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="my_messages.css">
+    <title>My Messages</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img id="homelogo" src="../Logo/Logo_Transparent_background.png">
+              </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../">Home</a>
+              </li>
+              <li><a class="nav-link" aria-current="page" href="../craft_a_message_pages/index.html">Craft Message</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                       My Account
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="my_messages.html">My Message</a></li>
+                        <li><a class="dropdown-item" href="#">Current Message</a></li>
+                        <li><a class="dropdown-item" href="#">Message History</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="../login.html">Login</a></li>
+                        <li><a class="dropdown-item" href="../create_account.html">Sign up</a></li>
+                        <li><a class="dropdown-item" href="../account.html">Account Info</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                    </ul>
+                </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+    <h1>My Messages</h1>
+    
+    <div class="divider"></div>
+    <div class="wrapper">
+        <div class="parent-container">
+            <div class="message-box item">
+                <p class="message-text"></p>
+            </div>
+            <div class="contact-name item">
+                <p class="contact1 name"></p> 
+                <p class="contact2 name"></p> 
+                <p class="contact3 name"></p> 
+            </div>
+            <div class="contact-email item">
+                <p class="contact1-email email"></p>
+                <p class="contact2-email email"></p>
+                <p class="contact3-email email"></p>
+            </div>
+            <div class="sendDateTime item">
+                <p class="date1"></p> 
+                <p class="date2"></p> 
+                <p class="date3"></p> 
+            </div>
+        </div>
+    </div>
+    <div class="divider"></div>
+
+    <!-- example#1 -->
+    <!-- <div class="divider"></div>
+    <div class="wrapper">
+        <div class="parent-container">
+            <div class="message-box item">
+                <p class="message-text">Hi, my I will be hiking at hillandale park with some friends, please make sure I'm back by 7</p>
+            </div>
+            <div class="contact-name item">
+                <p class="contact1 name">Tom Leopard</p> 
+                <p class="contact2 name">Richard Duarte</p> 
+                <p class="contact3 name">John Doe</p> 
+            </div>
+            <div class="contact-number item">
+                <p class="contact1-email email">rookie99@gmail.com</p>
+                <p class="contact2-email email">rookie99@gmail.com</p>
+                <p class="contact3-email email">rookie99@gmail.com</p>
+            </div>
+            <div class="sendDateTime item">
+                <p class="date1">09/29/23</p> 
+                <p class="date2">11/12/23</p> 
+                <p class="date3">12/13/23</p> 
+            </div>
+        </div>
+    </div>
+    <div class="divider"></div> -->
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script defer src="my_messages.js"></script>
+</body>
+</html>
