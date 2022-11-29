@@ -9,7 +9,7 @@ let displayedMessages = []
 let selectedMessage = null
 
 // display active messages
-window.addEventListener('load', async(e) => {
+async function displayMessages(e) {
     const token = localStorage.getItem("token")
 
     let url = `${dbURL}/messages`
@@ -26,17 +26,24 @@ window.addEventListener('load', async(e) => {
     if (response.ok) {
         if (response.status === 200) {
             const data = await response.json()
+            displayedMessages = []
             for (msgNum in data) {
                 if (data[msgNum].completed === false) {
                     displayedMessages.push(data[msgNum])
                 }
             }
             if (displayedMessages.length) {
-                messageDisplayArea.innerHTML = ' '
+                console.log(messageDisplayArea)
+                messageCards = messageDisplayArea.children
+                for (card of messageCards) {
+                    console.log(card)
+                    await card.remove()
+                }
+                messageDisplayArea.innerHTML = ''
                 for (let i = 0; i < displayedMessages.length; i++) {
                     // format date and time
                     datetime = new Date(displayedMessages[i].sendDatetime)
-                    timeString = datetime.getMonth() + "/" + datetime.getDate() + "/" + datetime.getFullYear() + " " + datetime.getHours()%12 + ":" + datetime.getMinutes()
+                    timeString = (datetime.getMonth()+1) + "/" + datetime.getDate() + "/" + datetime.getFullYear() + " " + datetime.getHours()%12 + ":" + datetime.getMinutes()
                     if (datetime.getHours() >= 12) {
                         timeString += " PM"
                     } else {
@@ -51,7 +58,7 @@ window.addEventListener('load', async(e) => {
                     }
 
                     messageDisplayArea.innerHTML += 
-                        `<div class="card" data-_id="${displayedMessages[i]._id}">
+                        `<div class="card message-card" data-_id="${displayedMessages[i]._id}">
                             <div class="card-header">
                                 <h5 class="card-title" style="display: inline-block">Message ${i}.</h5>
                                 <div style="float: right">
@@ -83,6 +90,7 @@ window.addEventListener('load', async(e) => {
                     disMessageBtns[i].addEventListener("click", disableMessages)
                 }
             } else {
+                messageDisplayArea.replaceChildren()
                 messageDisplayArea.innerHTML = "<p>no current messages</p>"
             }
         }
@@ -93,7 +101,7 @@ window.addEventListener('load', async(e) => {
             window.location.replace(newUrl)
         }
     }
-})
+}
 
 // disable message
 async function disableMessages(e) {
@@ -166,7 +174,7 @@ async function showModMessageModal(e) {
 saveMessageUpdateBtn.addEventListener("click", async(e) => {
     const token = localStorage.getItem("token")
 
-    const url = `${dbURL}/tasks`
+    const url = `${dbURL}/messages`
     
     // possibly updated values
     const contactName1 = document.getElementById('contactName-1').value
@@ -204,27 +212,21 @@ saveMessageUpdateBtn.addEventListener("click", async(e) => {
     // previous values
     const _id = selectedMessage._id
     let old_contacts = selectedMessage.contacts
-    for (cNum in old_contacts) {
-        delete old_contacts[cNum]._id
-    }
     const old_messageText = selectedMessage.messageText
     const old_geoLocation = selectedMessage.geoLocation
     let old_sendDatetime = selectedMessage.sendDatetime
     old_sendDatetime = new Date(old_sendDatetime)
-    old_sendDatetime = old_sendDatetime.getFullYear() + "-" + old_sendDatetime.getMonth() + "-" + old_sendDatetime.getDate() + "T" + old_sendDatetime.getHours() + ":" + old_sendDatetime.getMinutes()
+    old_sendDatetime = old_sendDatetime.getFullYear() + "-" + (old_sendDatetime.getMonth()+1) + "-" + old_sendDatetime.getDate() + "T" + old_sendDatetime.getHours() + ":" + old_sendDatetime.getMinutes()
     
     // check if values have been updated
-    contacts = (contacts === old_contacts) ? null : contacts
+    contacts = (compareContactArrays(contacts, old_contacts)) ? null : contacts
     messageText = (messageText === old_messageText) ? null : messageText
-    geoLocation = (geoLocation === old_geoLocation) ? null : geoLocation
+    geoLocation = (compareGeoJSON(geoLocation, old_geoLocation)) ? null : geoLocation
     sendDatetime = (sendDatetime === old_sendDatetime) ? null : sendDatetime
 
     // only include updated values
     const sendData = {_id, ...contacts && {contacts}, ...messageText && {messageText}, ...geoLocation && {geoLocation}, ...sendDatetime && {sendDatetime}}
     console.log(sendData)
-    console.log(contacts)
-    console.log(old_contacts)
-    console.log(contacts === old_contacts)
     if (Object.keys(sendData).length > 1) {
         document.getElementById("saveModalErrorInfo").textContent=" "
         
@@ -237,14 +239,13 @@ saveMessageUpdateBtn.addEventListener("click", async(e) => {
             body: JSON.stringify(sendData)
         }
         
-        //let response = await fetch(url, options)
+        let response = await fetch(url, options)
 
         if (response.ok) {
             if (response.status === 200) {
-                const modal = document.querySelector("#modifyTaskModal")
+                const modal = document.querySelector("#modifyMessageModal")
                 bootstrap.Modal.getInstance(modal).hide()
-                skip -= limit
-                displayTasks()
+                displayMessages()
             }
         } else {
             console.log("HTTP-Error: " + response.status)
@@ -257,4 +258,26 @@ saveMessageUpdateBtn.addEventListener("click", async(e) => {
     } else {
         document.getElementById("saveModalErrorInfo").textContent="no info has been changed"
     }
+})
+
+function compareContactArrays(newArr, oldArr) {
+    if (newArr === oldArr) return true;
+    if (newArr == null || oldArr == null) return false;
+    if (newArr.length !== oldArr.length) return false;
+
+    for (var i = 0; i < newArr.length; ++i) {
+        if (newArr[i].name !== oldArr[i].name || newArr[i].email !== oldArr[i].email) return false;
+    }
+    return true;
+}
+
+function compareGeoJSON(newGeo, oldGeo) {
+    if (newGeo.state !== oldGeo.state || newGeo.city !== oldGeo.city || newGeo.street !== oldGeo.street) {
+        return false
+    }
+    return true
+}
+
+window.addEventListener('load', async(e) => {
+    displayMessages()
 })
