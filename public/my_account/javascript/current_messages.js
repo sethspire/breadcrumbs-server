@@ -208,7 +208,7 @@ saveMessageUpdateBtn.addEventListener("click", async(e) => {
     const dd = String(today.getDate()).padStart(2, '0');
     const mm = String(today.getMonth()).padStart(2, '0'); //January is 0!
     const yyyy = today.getFullYear();
-    const sendDatetime = new Date(yyyy, mm, dd, hour, min)
+    let sendDatetime = new Date(yyyy, mm, dd, hour, min)
 
     // previous values
     const _id = selectedMessage._id
