@@ -52,16 +52,24 @@
 
           <h1>Account Settings</h1>
 <br></br>
-<form action="/action_page.php">
-  <label for="cars">Language:</label>
-  <select name="language" id="letters">
-    <option value="English">English</option>
-    <option value="Spanish">Spanish</option>
-    <option value="French">French</option>
-    <option value="Chinese">Chinese</option>
-  </select>
-</form>
 <br></br>
+
+<div class="demo">
+  <div>
+    <table class="lang">
+      <tr>
+        <td class="tdlang"><span id="english" class="button_lang current_lang">English</span></td>
+        <td class="tdlang"><span id="spanish" class="button_lang">Español</span></td>
+        <td class="tdlang"><span id="french" class="button_lang">Français</span></td>
+        <td class="tdlang"><span id="chinese" class="button_lang">Chinese</span></td>
+      </tr>
+    </table>
+    <div class="translation english" id="translate">    </div>
+  </div>
+</div>
+
+<br></br>
+
 <div>
 <button>Delete Account</button>
 </div>
