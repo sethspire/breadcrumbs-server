@@ -115,7 +115,7 @@ window.addEventListener('load', async(e) => {
                     body: JSON.stringify(data)
                 }
             
-                //let response = await fetch(url, options)
+                let response = await fetch(url, options)
                 data = await response.json()
             
                 if (response.status === 400) {
