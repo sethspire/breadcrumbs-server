@@ -47,28 +47,49 @@
     <h1>My Messages</h1>
     
     <div class="divider"></div>
+    <br>
+
     <div class="wrapper">
-        <div class="parent-container">
-            <div class="message-box item">
-                <p class="message-text"></p>
+        <a href = "../my_account/current_messages.html" style="text-decoration: none" class="card cur-message-card" data-_id="${displayedMessages[i]._id}">
+            <div class="card-header">
+                <h5 class="card-title" style="display: inline-block">Most Recent Current Message</h5>
             </div>
-            <div class="contact-name item">
-                <p class="contact1 name"></p> 
-                <p class="contact2 name"></p> 
-                <p class="contact3 name"></p> 
+            <div class="card-body">
+                <p class="card-text" id="cur-msg-text"><strong>Text: </strong></p>
+                <p class="card-text" id="cur-msg-sendDatetime"><strong>Send Datetime: </strong></p>
+                <p class="card-text" style="margin: 0"><strong>Geographical Location: </strong></p>
+                <div style="margin: 0 0 0.5em 2em">
+                    <p class="card-text" style="margin: 0" id="cur-msg-city"><strong>City: </strong></p>
+                    <p class="card-text" style="margin: 0" id="cur-msg-state"><strong>State: </strong></p>
+                    <p class="card-text" style="margin: 0" id="cur-msg-street"><strong>Street: </strong></p>
+                </div>
+                <p class="card-text" id="cur-msg-contacts"><strong>Contacts: </strong></p>
             </div>
-            <div class="contact-email item">
-                <p class="contact1-email email"></p>
-                <p class="contact2-email email"></p>
-                <p class="contact3-email email"></p>
+        </a>
+    </div>
+
+    <br>
+    <div class="divider"></div>
+    <br>
+
+    <div class="wrapper">
+        <div class="card old-message-card" data-_id="${displayedMessages[i]._id}">
+            <div class="card-header">
+                <h5 class="card-title" style="display: inline-block">Most Recent Old Message</h5>
             </div>
-            <div class="sendDateTime item">
-                <p class="date1"></p>
+            <div class="card-body">
+                <p class="card-text" id="old-msg-text"><strong>Text: </strong></p>
+                <p class="card-text" id="old-msg-sendDatetime"><strong>Send Datetime: </strong></p>
+                <p class="card-text" style="margin: 0"><strong>Geographical Location: </strong></p>
+                <div style="margin: 0 0 0.5em 2em">
+                    <p class="card-text" style="margin: 0" id="old-msg-city"><strong>City: </strong></p>
+                    <p class="card-text" style="margin: 0" id="old-msg-state"><strong>State: </strong></p>
+                    <p class="card-text" style="margin: 0" id="old-msg-street"><strong>Street: </strong></p>
+                </div>
+                <p class="card-text" id="old-msg-contacts"><strong>Contacts: </strong></p>
             </div>
         </div>
     </div>
-    <div class="divider"></div>
-
     <!-- example#1 -->
     <!-- <div class="divider"></div>
     <div class="wrapper">

@@ -3,17 +3,19 @@ const host = window.location.host
 //const dbURL = "https://thebreadcrumbs-api.herokuapp.com"
 const dbURL = (host.split(":",1)[0] === "localhost") ? "http://localhost:3001" : "https://thebreadcrumbs-api.herokuapp.com"
 
-const messageText = document.querySelector('.message-text')
+const cur_messageText = document.querySelector('#cur-msg-text')
+const cur_contacts = document.querySelector('#cur-msg-contacts')
+const cur_messageDate = document.querySelector('#cur-msg-sendDatetime')
+const cur_geo_state =  document.querySelector("#cur-msg-state")
+const cur_geo_city =  document.querySelector("#cur-msg-city")
+const cur_geo_street =  document.querySelector("#cur-msg-street")
 
-const contact1Name = document.querySelector('.contact1')
-const contact2Name = document.querySelector('.contact2')
-const contact3Name = document.querySelector('.contact3')
-
-const contact1Email = document.querySelector('.contact1-email')
-const contact2Email = document.querySelector('.contact2-email')
-const contact3Email = document.querySelector('.contact3-email')
-
-const messageDate = document.querySelector('.date1')
+const old_messageText = document.querySelector('#old-msg-text')
+const old_contacts = document.querySelector('#old-msg-contacts')
+const old_messageDate = document.querySelector('#old-msg-sendDatetime')
+const old_geo_state =  document.querySelector("#old-msg-state")
+const old_geo_city =  document.querySelector("#old-msg-city")
+const old_geo_street =  document.querySelector("#old-msg-street")
 
 window.addEventListener('load', async(e) => {
     e.preventDefault()
@@ -48,21 +50,21 @@ window.addEventListener('load', async(e) => {
             if(response.ok) {
                 if (response.status === 200) {
                     const data = await response.json()
+                    num_msgs = data.length
 
-                    //displays message1 in page
-                    msg1 = data[0]
-                    messageText.textContent = msg1.messageText
-                    contact1Name.textContent = msg1.contacts[0].name
-                    contact1Email.textContent = msg1.contacts[0].email
-                    if (msg1.contacts.length >= 2) {
-                        contact2Name.textContent = msg1.contacts[1].name
-                        contact2Email.textContent = msg1.contacts[1].email
+                    for (let i = num_msgs-1; i>=0; i--) {
+                        if (data[i].completed === false) {
+                            displayCurMessage(data[i])
+                            i = -1
+                        }
                     }
-                    if (msg1.contacts.length >= 3) {
-                        contact3Name.textContent = msg1.contacts[2].name
-                        contact3Email.textContent = msg1.contacts[2].email
+
+                    for (let i = num_msgs-1; i>=0; i--) {
+                        if (data[i].completed === true) {
+                            displayOldMessage(data[i])
+                            i = -1
+                        }
                     }
-                    messageDate.textContent = msg1.sendDatetime
                 }
             } 
             else {
@@ -79,3 +81,30 @@ window.addEventListener('load', async(e) => {
         window.location.replace(newUrl)
     }
 })
+
+
+function displayCurMessage(msg) {
+    cur_messageText.innerHTML += msg.messageText
+    cur_messageDate.innerHTML += msg.sendDatetime
+    contacts = ""
+    for (contact of msg.contacts) {
+        contacts += contact.name + "(" + contact.email + "),"
+    }
+    cur_contacts.innerHTML += contacts
+    cur_geo_city.innerHTML += msg.geoLocation.city
+    cur_geo_state.innerHTML += msg.geoLocation.state
+    cur_geo_street.innerHTML += msg.geoLocation.street
+}
+
+function displayOldMessage(msg) {
+    old_messageText.innerHTML += msg.messageText
+    old_messageDate.innerHTML += msg.sendDatetime
+    contacts = ""
+    for (contact of msg.contacts) {
+        contacts += contact.name + "(" + contact.email + "),"
+    }
+    old_contacts.innerHTML += contacts
+    old_geo_city.innerHTML += msg.geoLocation.city
+    old_geo_state.innerHTML += msg.geoLocation.state
+    old_geo_street.innerHTML += msg.geoLocation.street
+}

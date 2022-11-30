@@ -45,3 +45,13 @@ h1 {
 .item {
     margin: 5px 50px;
 }
+
+.card-text {
+    text-decoration: none;
+    color: black
+
+}
+.card-title {
+    text-decoration: none;
+    color: black
+}
