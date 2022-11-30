@@ -99,7 +99,8 @@ window.addEventListener('load', async(e) => {
                 const dd = String(today.getDate()).padStart(2, '0');
                 const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
                 const yyyy = today.getFullYear();
-                const sendDatetime = yyyy + "-" + mm + "-" + dd + "T" + time
+                const datetime = yyyy + "-" + mm + "-" + dd + "T" + time
+                const sendDatetime = Date(datetime)
                 
                 let data = {messageText, sendDatetime, contacts, geoLocation}
             
