@@ -1,6 +1,6 @@
 const protocol = window.location.protocol
 const host = window.location.host
-const dbURL = "https://thebreadcrumbs-api.herokuapp.com"
+const dbURL = (host.split(":",1)[0] === "localhost") ? "http://localhost:3001" : "https://thebreadcrumbs-api.herokuapp.com"
 
 //gets elements from the form 
 const createMessageForm = document.querySelector('#createMessageForm')
