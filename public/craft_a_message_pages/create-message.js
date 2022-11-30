@@ -95,13 +95,13 @@ window.addEventListener('load', async(e) => {
             
                 //stores the time indicating when to send the text
                 const time = timeInput.value
+                const [hour, min] = time.split(":")
                 const today = new Date()
                 const dd = String(today.getDate()).padStart(2, '0');
                 const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
                 const yyyy = today.getFullYear();
-                const datetime = yyyy + "-" + mm + "-" + dd + "T" + time
-                const sendDatetime = Date(datetime)
-                
+                //const datetime = yyyy + "-" + mm + "-" + dd + "T" + time
+                const sendDatetime = new Date(yyyy, mm, dd, hour, min)
                 let data = {messageText, sendDatetime, contacts, geoLocation}
             
                 const url = dbURL + '/messages'
@@ -115,7 +115,7 @@ window.addEventListener('load', async(e) => {
                     body: JSON.stringify(data)
                 }
             
-                let response = await fetch(url, options)
+                //let response = await fetch(url, options)
                 data = await response.json()
             
                 if (response.status === 400) {
