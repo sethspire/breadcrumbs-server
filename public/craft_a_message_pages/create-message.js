@@ -1,6 +1,6 @@
 const protocol = window.location.protocol
 const host = window.location.host
-const dbURL = "https://thebreadcrumbs-api.herokuapp.com"
+const dbURL = (host.split(":",1)[0] === "localhost") ? "http://localhost:3001" : "https://thebreadcrumbs-api.herokuapp.com"
 
 //gets elements from the form 
 const createMessageForm = document.querySelector('#createMessageForm')
@@ -30,6 +30,8 @@ const dbMessageDiv = document.getElementById('dbMessage')
 //prompts the user to login if token is not found
 window.addEventListener('load', async(e) => {
     e.preventDefault()
+
+    console.log(timeInput)
 
     //obtains the user's token for being logged in 
     const token = localStorage.getItem("token")
