@@ -202,12 +202,13 @@ saveMessageUpdateBtn.addEventListener("click", async(e) => {
         state: stateInput,
         street: streetInput
     }
-    const timeInput = document.getElementById('time').value
+    const time = document.getElementById('time').value
+    const [hour, min] = time.split(":")
     const today = new Date()
     const dd = String(today.getDate()).padStart(2, '0');
-    const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    const mm = String(today.getMonth()).padStart(2, '0'); //January is 0!
     const yyyy = today.getFullYear();
-    let sendDatetime = yyyy + "-" + mm + "-" + dd + "T" + timeInput
+    const sendDatetime = new Date(yyyy, mm, dd, hour, min)
 
     // previous values
     const _id = selectedMessage._id
@@ -216,7 +217,6 @@ saveMessageUpdateBtn.addEventListener("click", async(e) => {
     const old_geoLocation = selectedMessage.geoLocation
     let old_sendDatetime = selectedMessage.sendDatetime
     old_sendDatetime = new Date(old_sendDatetime)
-    old_sendDatetime = old_sendDatetime.getFullYear() + "-" + (old_sendDatetime.getMonth()+1) + "-" + old_sendDatetime.getDate() + "T" + old_sendDatetime.getHours() + ":" + old_sendDatetime.getMinutes()
     
     // check if values have been updated
     contacts = (compareContactArrays(contacts, old_contacts)) ? null : contacts
