@@ -1,0 +1,68 @@
+
+* {
+  box-sizing: border-box;
+}
+
+.demo {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.lang {
+  margin: 0 auto;
+}
+
+.button_lang {
+  cursor: pointer;
+  display: inline-block;
+  margin-left: -1400%;
+  border-radius: 10px;
+  width: 5em;
+  transition: 0.25s ease;
+}
+
+.button_lang:hover {
+  background: lightgray;
+  transition: 0.25s ease;
+}
+
+.current_lang {
+  background: lightgray;
+}
+
+.translation {
+  text-align: center;
+  margin: 0.5em;
+}
+
+.english {
+  font-family: "Asap", sans-serif;
+}
+
+.spanish {
+  font-family: "Noto Sans SC", sans-serif;
+  font-size: 1.5em;
+}
+
+.french {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 2em;
+}
+
+.chinese {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 2em;
+}
+
+h1{
+    margin-top: 15px;
+    color: rgb(225, 99, 3);
+    transform: translateX(50px);
+}
+
+button{
+  margin-left: 10%;
+}
